@@ -3,24 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#F8FAFC" />
-    <meta
-      name="description"
-      content="A JSON-driven, embeddable interaction for communicating a research agenda."
-    />
-    <title>Research Map · Interactive Research Communication</title>
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='14' fill='%23ffffff'/%3E%3Ccircle cx='24' cy='12' r='10.5' fill='%235856D6'/%3E%3Ccircle cx='12' cy='34' r='10.5' fill='%23007AFF'/%3E%3Ccircle cx='36' cy='34' r='10.5' fill='%2330B0C7'/%3E%3C/svg%3E"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="A dependency-free research-map interaction, built with SVG, JSON, and browser APIs." />
+    <title>Research Map</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='8' fill='%2352796F'/%3E%3C/svg%3E" />
   </head>
   <body>
-    <div id="root"></div>
-    <noscript
-      >Research Map requires JavaScript. Please enable it to view the site.</noscript
-    >
-    <script type="module" src="/src/main.jsx"></script>
+    <header class="plain-header"><a href="#notes">Research Map</a><span>interaction sketch / working demo</span></header>
+    <main class="markdown-page" id="notes">
+      <article class="markdown-copy">
+        <p class="markdown-kicker">README-style demo</p>
+        <h1>Research Map</h1>
+        <blockquote>A small interaction for explaining a research identity through the relationship between areas of work—not only a chronological list of papers.</blockquote>
+        <h2>Why I made this</h2>
+        <p>I wanted a clearer way to communicate where research sits and how earlier work connects to the areas it is moving toward. A CV can show output; it is less good at showing the logic between that output.</p>
+        <p>This is deliberately a working study, not a finished product.</p>
+      </article>
+      <section class="map-section" aria-labelledby="map-heading">
+        <h2 id="map-heading">Explore the research map</h2>
+        <research-map id="map"></research-map>
+      </section>
+      <article class="markdown-copy">
+        <h2>How the pointer interaction works</h2>
+        <p>The interaction uses <strong>direction</strong>, not a click on a pre-drawn overlap. First, select one circle as the primary foundation. Then move the pointer around inside it: which <em>side</em> of the circle you are on decides which neighbor it is compared with, and a short arc on the rim shows that side.</p>
+        <pre><code>heading = angle(primary.center -> pointer)
+for each neighbor: gap = angle between heading and angle(primary.center -> neighbor.center)
+secondary = neighbor with the smallest gap
+intersection = findPair(primary.id, secondary.id)</code></pre>
+        <p>A small dead zone around the center and a few degrees of stickiness at the edges between sides keep it from flickering. Keyboard: Enter selects, arrow keys change side. Touch: tap a side.</p>
+        <h2>Make your own</h2>
+        <p>The circles, colors and shared terms all come from a plain Markdown file, so there is no geometry to edit. Add a <code># Circle</code> line and the layout adjusts.</p>
+        <pre><code># Circle A
+color: #52796F
+# Circle B
+
+## Circle A + Circle B
+### Methods
+- Term one
+- Term two</code></pre>
+        <h2>Bottom-up workflow</h2>
+        <ol><li>Start with publications or projects you already have.</li><li>Assign each item meaningful tags in JSON.</li><li>Group the same terms into research intersections.</li><li>Use the resulting vocabulary to see patterns, gaps, and connections.</li><li>Place the interaction wherever it helps explain the work.</li></ol>
+        <p>The Venn diagram is only one possible view. The useful artifact is the connected vocabulary: JSON keeps a conceptual term linked to actual evidence.</p>
+      </article>
+      <section class="evidence-section" id="publications"><p class="markdown-kicker">Example evidence layer</p><h2>The metadata makes the map accountable.</h2><p>Each selected term filters the connected evidence records below.</p><div id="filter-status" aria-live="polite"></div><div id="publication-list"></div></section>
+    </main>
+    <footer class="plain-footer">Research Map · native Web Component interaction study</footer>
+    <script type="module" src="/web-component/demo.js"></script>
   </body>
 </html>

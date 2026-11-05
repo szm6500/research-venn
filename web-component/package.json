@@ -1,0 +1,20 @@
+{
+  "name": "research-map-element",
+  "version": "0.1.0",
+  "description": "A dependency-free Web Component for exploring research intersections.",
+  "type": "module",
+  "main": "research-map.js",
+  "exports": "./research-map.js",
+  "files": [
+    "research-map.js",
+    "parse.js",
+    "README.md"
+  ],
+  "keywords": [
+    "web-component",
+    "svg",
+    "research",
+    "visualization"
+  ],
+  "license": "MIT"
+}

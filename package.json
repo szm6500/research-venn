@@ -1,6 +1,6 @@
 {
   "name": "research-map",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": false,
   "type": "module",
   "engines": {
@@ -10,25 +10,13 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "format": "prettier --write src index.html *.js *.json .github/workflows/*.yml README.md"
+    "test": "node --check web-component/research-map.js && node --check web-component/parse.js && node --check web-component/demo.js && node --test web-component/parse.test.js",
+    "format": "prettier --write index.html web-component/*.js web-component/*.json *.js *.json .github/workflows/*.yml README.md"
   },
-  "dependencies": {
-    "lucide-react": "^0.468.0",
-    "react": "^19.3.1",
-    "react-dom": "^19.3.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@tailwindcss/vite": "^4.3.3",
-    "@testing-library/jest-dom": "^7.0.1",
-    "@testing-library/react": "^16.3.3",
-    "@testing-library/user-event": "^14.6.8",
-    "@vitejs/plugin-react": "^6.1.2",
-    "jsdom": "^26.1.0",
     "prettier": "^3.9.10",
-    "tailwindcss": "^4.3.3",
-    "vite": "^8.3.5",
-    "vitest": "^5.0.5"
-  }
+    "vite": "^8.3.5"
+  },
+  "license": "MIT"
 }

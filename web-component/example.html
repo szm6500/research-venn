@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research Map example</title>
+  <style>body{max-width:900px;margin:40px auto;padding:0 20px;font:16px/1.5 Inter,system-ui,sans-serif}#selection{padding:12px;border-left:3px solid #52796f;background:#f6f7f5}</style>
+  <!-- needs a local web server (fetch does not work from file://) -->
+  <research-map src="./example-map.md"></research-map>
+  <p id="selection">Select a term to see the event payload.</p>
+  <script type="module">
+    import "./research-map.js";
+    document.querySelector("research-map").addEventListener("research-map-select", ({ detail }) => {
+      document.querySelector("#selection").textContent = `Selected: ${detail.dimension} / ${detail.value}`;
+    });
+  </script>
+</html>

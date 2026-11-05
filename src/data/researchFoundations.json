@@ -1,5 +1,0 @@
-[
-  { "id": "participatory-design", "label": "Participatory Design", "labelLines": ["Participatory", "Design"], "foundation": "Community-centered inquiry", "geometry": { "cx": 160, "cy": 94.4, "x": 160, "y": 50 }, "color": "#5856D6", "fill": "rgba(88, 86, 214, 0.11)", "labelColor": "#3634A3" },
-  { "id": "machine-intelligence", "label": "Machine Intelligence", "labelLines": ["Machine", "Intelligence"], "foundation": "Human–AI collaboration", "geometry": { "cx": 100, "cy": 190.4, "x": 76, "y": 217 }, "color": "#007AFF", "fill": "rgba(0, 122, 255, 0.11)", "labelColor": "#0040DD" },
-  { "id": "public-systems", "label": "Public Systems", "labelLines": ["Public", "Systems"], "foundation": "Civic infrastructure", "geometry": { "cx": 220, "cy": 190.4, "x": 252, "y": 232 }, "color": "#30B0C7", "fill": "rgba(48, 176, 199, 0.12)", "labelColor": "#007180" }
-]
