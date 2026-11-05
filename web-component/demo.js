@@ -1,5 +1,5 @@
 import "./demo.css";
-import "./research-map.js";
+import "./research-venn.js";
 import { parseMap, parsePublications, checkEvidence } from "./parse.js";
 import mapText from "./example-map.md?raw";
 import publicationsText from "./example-publications.md?raw";
@@ -38,7 +38,7 @@ function renderPublications(filter = null) {
 const parameters = new URLSearchParams(window.location.search);
 const initial = parameters.get("dimension") && parameters.get("value") ? { dimension: parameters.get("dimension"), value: parameters.get("value") } : null;
 renderPublications(initial);
-map.addEventListener("research-map-select", ({ detail }) => {
+map.addEventListener("research-venn-select", ({ detail }) => {
   const next = new URLSearchParams({ dimension: detail.dimension, value: detail.value });
   history.replaceState(null, "", `?${next}#publications`);
   renderPublications(detail);

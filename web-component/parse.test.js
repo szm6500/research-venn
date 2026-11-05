@@ -43,8 +43,10 @@ test("rejects fewer than two circles, duplicate pairs and stray terms", () => {
 });
 
 test("warns about too many circles and unknown settings", () => {
-  const many = Array.from({ length: 6 }, (_, i) => `# C${i}`).join("\n");
-  assert.ok(parseMap(many).warnings.some((w) => /6 circles/.test(w)));
+  const many = Array.from({ length: 11 }, (_, i) => `# C${i}`).join("\n");
+  assert.ok(parseMap(many).warnings.some((w) => /11 circles/.test(w)));
+  const fine = Array.from({ length: 8 }, (_, i) => `# C${i}`).join("\n");
+  assert.deepEqual(parseMap(fine).warnings, []);
   assert.ok(parseMap("# A\nflavor: x\n# B").warnings.some((w) => /unknown setting/.test(w)));
 });
 

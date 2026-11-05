@@ -1,12 +1,31 @@
-# research-map element
+# research-venn element
 
-A custom element that draws overlapping circles and lets you explore what pairs of them share. Plain JS, no dependencies: `research-map.js` plus `parse.js`.
+A custom element that draws overlapping circles and lets you explore what pairs of them share. Plain JS, no dependencies: `research-venn.js` plus `parse.js`.
+
+## Install
+
+```bash
+npm install research-venn
+```
+
+```js
+import "research-venn";                        // defines <research-venn>
+import { parseMap } from "research-venn/parse"; // the Markdown parser, if you want it on its own
+```
+
+No bundler? Load it straight from a CDN:
+
+```html
+<script type="module" src="https://cdn.jsdelivr.net/npm/research-venn/research-venn.js"></script>
+```
+
+Or just copy `research-venn.js` and `parse.js` into your site.
 
 ## Use it
 
 ```html
-<script type="module" src="./research-map.js"></script>
-<research-map src="./map.md"></research-map>
+<script type="module" src="./research-venn.js"></script>
+<research-venn src="./map.md"></research-venn>
 ```
 
 `src` is fetched, so you need a web server (not `file://`). You can also hand it text or objects:
@@ -19,7 +38,7 @@ map.data = { foundations, intersections };                  // already-parsed ob
 ## The Markdown format
 
 ```md
-# Participatory Design          <!-- one per circle, 2 to 5 works best -->
+# Participatory Design          <!-- one per circle, up to about 10 -->
 color: #52796F                  <!-- optional, any CSS color; a palette is used otherwise -->
 
 ## Participatory Design + Machine Intelligence   <!-- names must match the circles -->
@@ -39,7 +58,7 @@ Select a circle, then move around inside it. The side you are on picks the neigh
 ## Events
 
 ```js
-map.addEventListener("research-map-select", ({ detail }) => {
+map.addEventListener("research-venn-select", ({ detail }) => {
   // detail.dimension  "methods"   (the group name, lowercase)
   // detail.value      "Co-design"
   // detail.intersection  the pair it came from
@@ -48,4 +67,4 @@ map.addEventListener("research-map-select", ({ detail }) => {
 
 ## Connecting evidence
 
-`parse.js` also exports `parsePublications` (see `example-publications.md`) and `checkEvidence`, which warns when a tag in your publications is not a term in your map, or the other way round. The demo page in the repo root shows it filtering a list on `research-map-select`.
+`parse.js` also exports `parsePublications` (see `example-publications.md`) and `checkEvidence`, which warns when a tag in your publications is not a term in your map, or the other way round. The demo page in the repo root shows it filtering a list on `research-venn-select`.

@@ -4,16 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#ffffff" />
-    <meta name="description" content="A dependency-free research-map interaction, built with SVG, JSON, and browser APIs." />
-    <title>Research Map</title>
+    <meta name="description" content="A dependency-free research-venn interaction, built with SVG, JSON, and browser APIs." />
+    <title>Research Venn</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='8' fill='%2352796F'/%3E%3C/svg%3E" />
   </head>
   <body>
-    <header class="plain-header"><a href="#notes">Research Map</a><span>interaction sketch / working demo</span></header>
+    <header class="plain-header"><a href="#notes">Research Venn</a><span>interaction sketch / working demo</span></header>
     <main class="markdown-page" id="notes">
       <article class="markdown-copy">
         <p class="markdown-kicker">README-style demo</p>
-        <h1>Research Map</h1>
+        <h1>Research Venn</h1>
         <blockquote>A small interaction for explaining a research identity through the relationship between areas of work—not only a chronological list of papers.</blockquote>
         <h2>Why I made this</h2>
         <p>I wanted a clearer way to communicate where research sits and how earlier work connects to the areas it is moving toward. A CV can show output; it is less good at showing the logic between that output.</p>
@@ -21,7 +21,7 @@
       </article>
       <section class="map-section" aria-labelledby="map-heading">
         <h2 id="map-heading">Explore the research map</h2>
-        <research-map id="map"></research-map>
+        <research-venn id="map"></research-venn>
       </section>
       <article class="markdown-copy">
         <h2>How the pointer interaction works</h2>
@@ -47,7 +47,7 @@ color: #52796F
       </article>
       <section class="evidence-section" id="publications"><p class="markdown-kicker">Example evidence layer</p><h2>The metadata makes the map accountable.</h2><p>Each selected term filters the connected evidence records below.</p><div id="filter-status" aria-live="polite"></div><div id="publication-list"></div></section>
     </main>
-    <footer class="plain-footer">Research Map · native Web Component interaction study</footer>
+    <footer class="plain-footer">Research Venn · native Web Component interaction study</footer>
     <script type="module" src="/web-component/demo.js"></script>
   </body>
 </html>

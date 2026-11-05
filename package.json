@@ -1,7 +1,7 @@
 {
-  "name": "research-map",
+  "name": "research-venn-demo",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "type": "module",
   "engines": {
     "node": ">=22.20.0"
@@ -10,7 +10,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "node --check web-component/research-map.js && node --check web-component/parse.js && node --check web-component/demo.js && node --test web-component/parse.test.js",
+    "test": "node --check web-component/research-venn.js && node --check web-component/parse.js && node --check web-component/demo.js && node --test web-component/parse.test.js",
     "format": "prettier --write index.html web-component/*.js web-component/*.json *.js *.json .github/workflows/*.yml README.md"
   },
   "dependencies": {},

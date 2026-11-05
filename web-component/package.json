@@ -1,20 +1,43 @@
 {
-  "name": "research-map-element",
+  "name": "research-venn",
   "version": "0.1.0",
-  "description": "A dependency-free Web Component for exploring research intersections.",
+  "description": "A custom element that draws overlapping circles from a Markdown file and lets you explore what pairs of them share.",
   "type": "module",
-  "main": "research-map.js",
-  "exports": "./research-map.js",
+  "main": "research-venn.js",
+  "exports": {
+    ".": "./research-venn.js",
+    "./parse": "./parse.js",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "./research-venn.js"
+  ],
   "files": [
-    "research-map.js",
+    "research-venn.js",
     "parse.js",
-    "README.md"
+    "example-map.md",
+    "example-publications.md",
+    "README.md",
+    "LICENSE"
   ],
   "keywords": [
     "web-component",
+    "custom-element",
+    "venn-diagram",
     "svg",
+    "markdown",
     "research",
     "visualization"
   ],
-  "license": "MIT"
+  "author": "Sam Moradzadeh",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szm6500/research-venn.git",
+    "directory": "web-component"
+  },
+  "homepage": "https://github.com/szm6500/research-venn#readme",
+  "bugs": {
+    "url": "https://github.com/szm6500/research-venn/issues"
+  }
 }

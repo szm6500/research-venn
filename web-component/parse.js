@@ -1,4 +1,4 @@
-// Turns the plain-text Markdown input into the plain objects <research-map> draws.
+// Turns the plain-text Markdown input into the plain objects <research-venn> draws.
 // Nothing here touches the DOM, so it also runs in Node (see parse.test.js).
 
 export function slug(text) {
@@ -94,8 +94,8 @@ export function parseMap(text) {
   });
 
   if (foundations.length < 2) errors.push("Add at least two circles, each starting with a line like: # My Area");
-  if (foundations.length > 5) {
-    warnings.push(`${foundations.length} circles is a lot. Layouts are tuned for 2 to 5; some pairs will not overlap.`);
+  if (foundations.length > 10) {
+    warnings.push(`${foundations.length} circles is a lot. Past about 10 the labels start to collide.`);
   }
 
   const byName = new Map(foundations.map((item) => [item.label.toLowerCase(), item]));

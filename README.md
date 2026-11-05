@@ -1,4 +1,4 @@
-# Research Map
+# Research Venn
 
 A small interaction for explaining a research agenda as a connected system instead of a chronological list of papers. You describe your areas in a Markdown file and it draws overlapping circles you can explore.
 
@@ -42,14 +42,14 @@ title: Human-AI collaboration
 - Prototyping
 ```
 
-- `# Name` is a circle. Add as many as you want, 2 to 5 works well. After 5, some pairs can't overlap anymore, and the parser warns you.
+- `# Name` is a circle. Add as many as you want. Up to 5 the circles stay the same size. After that they shrink and the labels move outside the ring, and it reads fine up to about 10 (the parser warns past that).
 - `color:` is optional and can be any CSS color. Without it a built-in palette is used. The fill and label colors are derived from it.
 - `## A + B` describes what two circles share. The names have to match the circles above.
 - `### Group` and `- term` are the vocabulary for that pair. Any number of each.
 
 If something's wrong (mistyped circle name, a term with no group) the error shows up on the page with the line number, and it suggests the name you probably meant.
 
-The circles go evenly around a ring. The ring size is picked so neighbors overlap by about the same amount whatever the count is.
+The circles go evenly around a ring. The size is picked so neighbors overlap by about the same amount whatever the count is. With more circles, pairs that aren't neighbors stop touching. You can still pick them with the pointer or the arrow keys, and instead of a shaded overlap you get a dashed line between the two circles.
 
 ## Evidence
 
@@ -68,14 +68,14 @@ The content in this repo is made-up demo data.
 
 ## Using it
 
-The element is plain JavaScript with no dependencies: `web-component/research-map.js` and `web-component/parse.js`. Copy those and your Markdown file into any static site:
+The element is plain JavaScript with no dependencies: `web-component/research-venn.js` and `web-component/parse.js`. Copy those and your Markdown file into any static site, or `npm install research-venn`:
 
 ```html
-<script type="module" src="./research-map.js"></script>
-<research-map src="./map.md"></research-map>
+<script type="module" src="./research-venn.js"></script>
+<research-venn src="./map.md"></research-venn>
 ```
 
-`src` is fetched, so you need a web server (it won't work from `file://`). You can also give it text (`map.source = "..."`) or already-parsed objects (`map.data = {...}`). It fires a `research-map-select` event with the clicked term, and your page decides what to do with it, like filtering a list. The details are in the [component README](./web-component/README.md).
+`src` is fetched, so you need a web server (it won't work from `file://`). You can also give it text (`map.source = "..."`) or already-parsed objects (`map.data = {...}`). It fires a `research-venn-select` event with the clicked term, and your page decides what to do with it, like filtering a list. The details are in the [component README](./web-component/README.md).
 
 To run the demo page:
 
@@ -103,7 +103,7 @@ A version of this runs on my site, [sammoradzadeh.me](https://www.sammoradzadeh.
 ## Rough edges and what I'd like to do next
 
 - Only the Markdown parser has tests. The component itself I've only checked by hand in a browser.
-- 2 to 5 circles. I haven't figured out a good way to show more.
+- Past 5 circles the circles get smaller, and by 10 the text is small and the diagram gets crowded.
 - Only pairs of circles, not three-way overlaps.
 - Parser errors aren't sorted by line number.
 - Publication tags are matched by exact text, so "Co-design" and "co-design" count as different.

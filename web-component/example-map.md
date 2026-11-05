@@ -1,4 +1,4 @@
-<!-- Each "# " line is a circle. Add or remove circles freely (2 to 5 works best). -->
+<!-- Each "# " line is a circle. Add or remove circles freely (up to about 10). -->
 <!-- Colors are optional; leave them out and a palette is used. Any CSS color works. -->
 
 # Participatory Design
